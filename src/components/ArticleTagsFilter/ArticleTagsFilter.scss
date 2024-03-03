@@ -1,0 +1,15 @@
+@import '/src/styles/mixins';
+
+.filter-title, .filter-control {
+  padding: .5rem;
+}
+
+.filter-controls {
+  @include flex(column, center, stretch);
+
+}
+
+.filter-control {
+  @include flex(row, flex-start, center);
+  gap: .5rem;
+}

@@ -1,4 +1,5 @@
 @import '/src/styles/var';
+@import '/src/styles/mixins';
 
 .agronomy-page-container {
   margin-top: 5rem;
@@ -6,3 +7,9 @@
   max-width: 80rem;
 }
 
+
+.agronomy-content-wrapper {
+  @include flex(row, flex-start, flex-start);
+  gap: 1rem;
+  
+}

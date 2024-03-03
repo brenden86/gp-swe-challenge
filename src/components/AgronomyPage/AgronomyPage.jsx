@@ -10,7 +10,7 @@ import ArticleTagsFilter from '../ArticleTagsFilter/ArticleTagsFilter';
 
 export default function AgronomyPage() {
   return (
-    <div className='agronomy-page-container debug'>
+    <div className='agronomy-page-container'>
       
       <PageTitle text={"Great Plains Agronomy"}/>
 
