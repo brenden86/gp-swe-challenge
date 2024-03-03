@@ -1,9 +1,8 @@
 import React from 'react';
+import he from 'he'; // HTML entity decoding library
 import './ArticleBlock.scss';
 
 export default function ArticleBlock({ article }) {
-
-  console.log(article.categorization.tags)
 
   return (
     <article className='article-block'>
@@ -20,19 +19,19 @@ export default function ArticleBlock({ article }) {
         <div className="article-info">
 
           <div className="article-title">
-            <h2>{article.title}</h2>
+            <h2>{he.decode(article.title)}</h2>
           </div>
 
           <div className="article-tags">
             {
               article.categorization.tags.values.map(tag => (
-                <button className="tag">{tag.name}</button>
+                <button className="tag" key={tag.id}>{tag.name}</button>
               ))
             }
           </div>
 
           <div className="article-summary">
-            {article.body.summary}
+            {he.decode(article.body.summary)}
           </div>
 
         </div>
