@@ -1,7 +1,7 @@
 import React from 'react';
 import './AgronomyPage.scss';
 
-// component imports
+// components
 import PageTitle from '../PageTitle/PageTitle';
 import ArticleBlocksColumn from '../ArticleBlocksColumn/ArticleBlocksColumn';
 import ArticleBlock from '../ArticleBlock/ArticleBlock';

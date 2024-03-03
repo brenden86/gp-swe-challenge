@@ -1,0 +1,40 @@
+@import '/src/styles/mixins';
+@import '/src/styles/var';
+
+.article-block {
+  @include flex(column, flex-start, stretch);
+  margin: 1rem;
+
+  .block-content-wrapper {
+    @include flex(row, center, flex-start);
+    gap: 1rem;
+
+  }
+
+  .article-image {
+
+    img {
+      width: 22rem;
+      object-fit: contain;
+    }
+
+  }
+  
+  .article-info {
+    @include flex(column, flex-start, flex-start);
+    gap: .5rem;
+
+    .article-tags {
+      @include flex(row, flex-start, flex-start);
+      gap: .5rem;
+    }
+
+  }
+
+
+  button {
+    align-self: flex-end;
+  }
+
+
+}
