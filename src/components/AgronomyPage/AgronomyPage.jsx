@@ -23,13 +23,16 @@ export default function AgronomyPage() {
   useEffect(() => {
 
     const getArticles = async () => {
+      setDataLoading(true)
       try {
         const res = await fetch('https://api.greatplainsag.com/v1/agronomy/en')
         const data = await res.json()
         setArticles(data);
-        setTags(data.tags)
+        setTags(data.tags);
+        setDataLoading(false)
       } catch (e) {
         console.error(e.message)
+        setDataLoading(false)
       }
     }
 
@@ -67,7 +70,7 @@ export default function AgronomyPage() {
 
         <ArticleBlocksColumn>
 
-          {JSON.stringify()}
+          {dataLoading &&<h1>LOADING...</h1>}
           
           {articles.nidList&&
             articles.nidList
@@ -86,7 +89,7 @@ export default function AgronomyPage() {
         </ArticleBlocksColumn>
 
         <Sidebar>
-
+          
           <ArticleTagsFilter
             tags={tags}
             selectedTags={selectedTags}
