@@ -13,7 +13,7 @@ export default function ArticleBlock({ article, setSelectedTags }) {
 
         <div className="article-image">
           <img
-            src={article.article_image?.values[0].images['500px_width_uri'] ?? '/src/assets/images/agronomy_placeholder.jpg'}
+            src={article.article_image?.values[0].images['500px_width_uri'] ?? '/images/agronomy_placeholder.jpg'}
             alt={article.article_image?.values[0].alt}
           />
         </div>
