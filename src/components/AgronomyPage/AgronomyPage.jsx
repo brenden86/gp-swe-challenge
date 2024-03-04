@@ -18,8 +18,6 @@ export default function AgronomyPage() {
 
 
   // fetch articles from API
-  let ignore = true; // used to prevent calling API twice on mount
-
   useEffect(() => {
 
     const getArticles = async () => {
@@ -36,11 +34,7 @@ export default function AgronomyPage() {
       }
     }
 
-    if(!ignore) {
-      getArticles();
-    }
-
-    return () => { ignore = false }
+    getArticles();
   
   }, [])
 
