@@ -10,6 +10,14 @@ export default function SelectedTags({ tags, selectedTags }) {
     }
   }
 
+  const tagNames = [];
+
+  for(const tag in tags) {
+    if(selectedTags.includes(tag)) {
+      tagNames.push(...Object.keys(tags[tag]));
+    }
+  }
+
   return (
     <div className='selected-tags'>
       {selectedTags.length > 0 &&
