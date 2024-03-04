@@ -2,11 +2,12 @@
 @import '/src/styles/mixins';
 
 .agronomy-page-container {
+  @include flex(column, flex-start, stretch);
+  gap: 2rem;
   margin-top: 5rem;
   width: 80%;
   max-width: 80rem;
 }
-
 
 .agronomy-content-wrapper {
   @include flex(row, flex-start, flex-start);
