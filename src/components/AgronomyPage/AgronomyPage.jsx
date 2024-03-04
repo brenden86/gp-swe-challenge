@@ -68,7 +68,11 @@ export default function AgronomyPage() {
 
         <Sidebar>
 
-          <ArticleTagsFilter tags={tags}/>
+          <ArticleTagsFilter
+            tags={tags}
+            selectedTags={selectedTags}
+            setSelectedTags={setSelectedTags}
+          />
 
         </Sidebar>
 

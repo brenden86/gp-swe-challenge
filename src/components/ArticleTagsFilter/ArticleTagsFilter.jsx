@@ -1,9 +1,25 @@
 import React from 'react';
 import './ArticleTagsFilter.scss';
 
-export default function ArticleTagsFilter({ tags }) {
+export default function ArticleTagsFilter({ tags, selectedTags, setSelectedTags }) {
 
   let tagIDs = Object.keys(tags)
+
+  // add or remove tag from selected tags based on input checked state
+  function handleChange(e) {
+
+    let tid = e.target.getAttribute('data-tid');
+
+    // add tag to filter if checked
+    if(e.target.checked) {
+      setSelectedTags(tags => [...tags, tid])
+    } else if(selectedTags.includes(e.target.getAttribute('data-tid'))) {
+      // if un-checking tag, remove from selected tags
+      let currentTags = selectedTags;
+      let removeIndex = currentTags.indexOf(tid);
+      setSelectedTags([...currentTags.slice(0,removeIndex), ...currentTags.slice(removeIndex+1, currentTags.length)]);
+    }
+  }
 
   return (
     <section className='article-filter'>
@@ -16,7 +32,12 @@ export default function ArticleTagsFilter({ tags }) {
 
         {tagIDs.map(tid => (
           <label className="filter-control" key={tid}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              data-tid={tid}
+              onChange={handleChange}
+              checked={selectedTags.includes(tid) && true}
+            />
 
             {/* custom checkbox */}
             <div className="checkbox">
