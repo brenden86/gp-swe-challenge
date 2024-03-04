@@ -28,10 +28,9 @@
     gap: .5rem;
 
     .article-title {
-      h2 {
-        font-size: 1.25rem;
-        color: $font-color;
-      }
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: $font-color;
       border-bottom: 1px solid $gp-gold;
     }
 
