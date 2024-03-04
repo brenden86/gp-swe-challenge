@@ -1,8 +1,10 @@
 @import '/src/styles/mixins';
+@import '/src/styles/var';
 
 .sidebar {
   @include flex(column, flex-start, stretch);
   gap: 1rem;
   flex-basis: 16rem;
   flex-shrink: 0;
+  background: $grey-lt;
 }

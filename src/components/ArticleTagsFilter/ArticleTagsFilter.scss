@@ -1,7 +1,14 @@
 @import '/src/styles/mixins';
+@import '/src/styles/var';
 
 .filter-title, .filter-control {
-  padding: .5rem;
+  padding: .75rem;
+}
+
+.filter-title {
+  background: $grey;
+  text-transform: uppercase;
+
 }
 
 .filter-controls {
@@ -12,4 +19,41 @@
 .filter-control {
   @include flex(row, flex-start, center);
   gap: .5rem;
+  border-bottom: 1px solid $grey;
+  transition: background 100ms;
+
+  &:hover {
+    cursor: pointer;
+    background: $grey;
+  }
+
+  // hide original checkbox but keep native functionality
+  input[type="checkbox"] {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
+  .checkbox {
+    @include flex(row, center, center);
+    border: 2px solid $gp-gold;
+    border-radius: .25rem;
+    svg {
+      visibility: hidden;
+      // make checkmarks a bit bigger
+      transform: scale(1.5);
+    }
+  }
+
+  input:checked ~ .checkbox {
+    background: $gp-gold;
+    svg {
+      visibility: visible;
+    }
+  }
+
 }
