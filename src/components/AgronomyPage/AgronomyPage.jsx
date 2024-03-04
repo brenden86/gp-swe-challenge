@@ -56,7 +56,11 @@ export default function AgronomyPage() {
           
           {articles.nidList&&
             articles.nidList.map(nid => (
-              <ArticleBlock key={nid} article={articles.agronomy[nid]}/>
+              <ArticleBlock
+                key={nid}
+                article={articles.agronomy[nid]}
+                setSelectedTags={setSelectedTags}
+              />
             ))
           }
 

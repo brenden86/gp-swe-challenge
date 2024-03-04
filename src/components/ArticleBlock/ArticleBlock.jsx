@@ -4,7 +4,7 @@ import './ArticleBlock.scss';
 
 import Tag from '../Tag/Tag';
 
-export default function ArticleBlock({ article }) {
+export default function ArticleBlock({ article, setSelectedTags }) {
 
   return (
     <article className='article-block'>
@@ -29,8 +29,8 @@ export default function ArticleBlock({ article }) {
               article.categorization.tags.values.map(tag => (
                 <Tag
                   key={tag.id}
-                  name={tag.name}
-                  onClick={null}
+                  tag={tag}
+                  setSelectedTags={setSelectedTags}
                 />
               ))
             }
