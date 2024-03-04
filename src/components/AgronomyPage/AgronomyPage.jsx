@@ -11,13 +11,13 @@ import ArticleTagsFilter from '../ArticleTagsFilter/ArticleTagsFilter';
 
 export default function AgronomyPage() {
 
-  const [articles, setArticles] = useState({});
+  const [articles, setArticles] = useState(null);
   const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [dataLoading, setDataLoading] = useState(false);
 
-  // fetch articles from API
 
+  // fetch articles from API
   let ignore = true; // used to prevent calling API twice on mount
 
   useEffect(() => {
@@ -72,9 +72,10 @@ export default function AgronomyPage() {
 
           {dataLoading &&<h1>LOADING...</h1>}
           
-          {articles.nidList&&
+          {articles&&
             articles.nidList
               .filter(nid => (
+                // if tags are selected, only include articles with the selected tag(s)
                 checkTags(Object.values(articles.agronomy[nid].categorization.tags.values))
               ))
               .map(nid => (
