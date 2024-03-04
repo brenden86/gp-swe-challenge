@@ -11,13 +11,13 @@ import ArticleTagsFilter from '../ArticleTagsFilter/ArticleTagsFilter';
 export default function AgronomyPage() {
 
   const [articles, setArticles] = useState({});
+  const [tags, setTags] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [dataLoading, setDataLoading] = useState(false);
 
   // fetch articles from API
 
   let ignore = true; // used to prevent calling API twice on mount
-  let myStuff;
 
   useEffect(() => {
 
@@ -26,7 +26,7 @@ export default function AgronomyPage() {
         const res = await fetch('https://api.greatplainsag.com/v1/agronomy/en')
         const data = await res.json()
         setArticles(data);
-
+        setTags(data.tags)
       } catch (e) {
         console.error(e.message)
       }
@@ -61,7 +61,7 @@ export default function AgronomyPage() {
 
         <Sidebar>
 
-          <ArticleTagsFilter/>
+          <ArticleTagsFilter tags={tags}/>
 
         </Sidebar>
 

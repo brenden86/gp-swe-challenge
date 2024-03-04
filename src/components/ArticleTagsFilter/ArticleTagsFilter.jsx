@@ -1,7 +1,10 @@
 import React from 'react';
 import './ArticleTagsFilter.scss';
 
-export default function ArticleTagsFilter() {
+export default function ArticleTagsFilter({ tags }) {
+
+  let tagIDs = Object.keys(tags)
+
   return (
     <section className='article-filter'>
 
@@ -11,22 +14,13 @@ export default function ArticleTagsFilter() {
 
       <div className="filter-controls">
 
-        <label className="filter-control">
-          <input type="checkbox" />
-          Cover Crops (5)
-        </label>
-        <label className="filter-control">
-          <input type="checkbox" />
-          Cover Crops (5)
-        </label>
-        <label className="filter-control">
-          <input type="checkbox" />
-          Cover Crops (5)
-        </label>
-        <label className="filter-control">
-          <input type="checkbox" />
-          Cover Crops (5)
-        </label>
+        
+        {tagIDs.map(tid => (
+          <label className="filter-control" key={tid}>
+            <input type="checkbox" />
+            {Object.keys(tags[tid])[0]} ({tags[tid][Object.keys(tags[tid])[0]]})
+          </label>
+        ))}
 
       </div>
 
