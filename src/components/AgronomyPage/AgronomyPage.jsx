@@ -39,7 +39,20 @@ export default function AgronomyPage() {
 
     return () => { ignore = false }
   
-  }, [selectedTags])
+  }, [])
+
+  // helper function that returns true if an article has tags that are currently selected
+  function checkTags(tagsArray) {
+    let inArray = false;
+    tagsArray.forEach(tag => {
+      // if no tags are selected OR the article's tag is found
+      // in the selectedTags array, return true
+      if(selectedTags.length < 1 || selectedTags.includes(tag.tid)) {
+        inArray = true;
+      }
+    })
+    return inArray;
+  }
 
 
 
@@ -53,15 +66,21 @@ export default function AgronomyPage() {
       <div className="agronomy-content-wrapper">
 
         <ArticleBlocksColumn>
+
+          {JSON.stringify()}
           
           {articles.nidList&&
-            articles.nidList.map(nid => (
-              <ArticleBlock
-                key={nid}
-                article={articles.agronomy[nid]}
-                setSelectedTags={setSelectedTags}
-              />
-            ))
+            articles.nidList
+              .filter(nid => (
+                checkTags(Object.values(articles.agronomy[nid].categorization.tags.values))
+              ))
+              .map(nid => (
+                <ArticleBlock
+                  key={nid}
+                  article={articles.agronomy[nid]}
+                  setSelectedTags={setSelectedTags}
+                />
+              ))
           }
 
         </ArticleBlocksColumn>
