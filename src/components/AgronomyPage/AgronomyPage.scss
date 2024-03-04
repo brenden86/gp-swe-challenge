@@ -8,8 +8,14 @@
   max-width: 80rem;
 }
 
+@media screen and (max-width: 768px) {
+  .agronomy-page-container {
+    width: 95%;
+  }
+}
+
 .agronomy-content-wrapper {
-  @include flex(row, flex-start, flex-start);
+  @include flex(row, flex-start, flex-start, wrap);
   gap: 1rem;
   margin-top: 1rem;
 }
