@@ -26,9 +26,9 @@ export default function ArticleBlock({ article, setSelectedTags }) {
 
           <div className="article-tags">
             {
-              article.categorization.tags.values.map(tag => (
+              article.categorization.tags.values.map((tag, index) => (
                 <Tag
-                  key={tag.id}
+                  key={index}
                   tag={tag}
                   setSelectedTags={setSelectedTags}
                 />
