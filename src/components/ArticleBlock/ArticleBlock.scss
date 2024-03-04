@@ -3,7 +3,10 @@
 
 .article-block {
   @include flex(column, flex-start, stretch);
-  margin: 1rem;
+  padding: 1rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid $grey-dk;
+  }
 
   .block-content-wrapper {
     @include flex(row, center, flex-start);
@@ -21,11 +24,19 @@
   }
   
   .article-info {
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, flex-start, stretch);
     gap: .5rem;
 
+    .article-title {
+      h2 {
+        font-size: 1.25rem;
+        color: $font-color;
+      }
+      border-bottom: 1px solid $gp-gold;
+    }
+
     .article-tags {
-      @include flex(row, flex-start, flex-start);
+      @include flex(row, flex-start, flex-start, wrap);
       gap: .5rem;
     }
 

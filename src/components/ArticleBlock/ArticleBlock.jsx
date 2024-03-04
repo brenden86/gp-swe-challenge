@@ -2,6 +2,8 @@ import React from 'react';
 import he from 'he'; // HTML entity decoding library
 import './ArticleBlock.scss';
 
+import Tag from '../Tag/Tag';
+
 export default function ArticleBlock({ article }) {
 
   return (
@@ -25,7 +27,11 @@ export default function ArticleBlock({ article }) {
           <div className="article-tags">
             {
               article.categorization.tags.values.map(tag => (
-                <button className="tag" key={tag.id}>{tag.name}</button>
+                <Tag
+                  key={tag.id}
+                  name={tag.name}
+                  onClick={null}
+                />
               ))
             }
           </div>

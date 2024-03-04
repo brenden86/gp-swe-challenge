@@ -1,4 +1,7 @@
+@import '/src/styles/mixins';
 
 .article-blocks-column {
+  @include flex(column, flex-start, stretch);
   flex-grow: 1;
+  gap: 2rem;
 }

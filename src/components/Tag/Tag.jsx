@@ -1,8 +1,10 @@
 import React from 'react';
-import './tag.scss';
+import './Tag.scss';
 
-export default function Tag() {
+export default function Tag({ name, onClick }) {
   return (
-    <div>Tag</div>
+    <button className="tag">
+      {name}
+    </button>
   )
 }
