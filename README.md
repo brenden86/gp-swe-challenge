@@ -5,15 +5,19 @@ Lists Great Plains agronomy article blocks from API. Includes all essential UI e
 **BUILD INSTRUCTIONS (NPM)**
 
 After cloning repo:
-1. Install dependencies
+1. Navigate to project directory
+```
+cd gp-swe-challenge
+```
+2. Install dependencies
 ```
 npm install
 ```
-2. Make a production build
+3. Make a production build
 ```
 npm run build
 ```
-3. Spin up local server to view in browser
+4. Spin up local server to view in browser
 ```
 npm run preview
 ```
