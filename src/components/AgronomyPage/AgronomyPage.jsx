@@ -3,6 +3,7 @@ import './AgronomyPage.scss';
 
 // components
 import PageTitle from '../PageTitle/PageTitle';
+import SelectedTags from '../SelectedTags/SelectedTags';
 import ArticleBlocksColumn from '../ArticleBlocksColumn/ArticleBlocksColumn';
 import ArticleBlock from '../ArticleBlock/ArticleBlock';
 import Sidebar from '../Sidebar/Sidebar';
@@ -46,6 +47,8 @@ export default function AgronomyPage() {
     <div className='agronomy-page-container'>
       
       <PageTitle text={"Great Plains Agronomy"}/>
+
+      {selectedTags.length == 0 && <SelectedTags/>}
 
       <div className="agronomy-content-wrapper">
 
