@@ -48,7 +48,7 @@ export default function AgronomyPage() {
       
       <PageTitle text={"Great Plains Agronomy"}/>
 
-      {selectedTags.length == 0 && <SelectedTags/>}
+      <SelectedTags selectedTags={selectedTags} tags={tags}/>
 
       <div className="agronomy-content-wrapper">
 
