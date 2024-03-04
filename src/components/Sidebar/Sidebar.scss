@@ -4,7 +4,7 @@
 .sidebar {
   @include flex(column, flex-start, stretch);
   gap: 1rem;
-  flex-basis: 16rem;
+  flex-basis: 18rem;
   flex-shrink: 0;
   background: $grey-lt;
 }
